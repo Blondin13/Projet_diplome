@@ -1,0 +1,400 @@
+/*-----------------------------------------------FONT------------------------------------------------*/
+@font-face {
+   font-family: rosa;
+   src: url(/assets/font/castameresansregular.ttf);
+}
+
+@font-face {
+    font-family: out;
+    src: url(/assets/font/outlander.ttf);
+}
+
+/*----------------------------------------------------NAV--------------------------------------------------*/
+.navbar{
+    background-color: #086900 !important;
+    height: 70px !important;
+}
+
+a{
+    font-family: out;
+    font-size: 1.5rem !important;
+    letter-spacing: 3px;
+    color: white;
+    text-decoration: none !important;
+    text-shadow: 1px 1px 3px black;
+}
+
+.btn-connexion:hover{
+    background-color: white;
+    color: black;
+    text-shadow: 1px 1px 3px gray;
+    border-radius: 10px;
+}
+
+li{
+    margin-left: 30px;
+}
+    
+.btn{
+    height: 34px;
+    background-color: rgb(194, 189, 189);
+}
+
+/*---------------------------------------------------INDEX--------------------------------------------------*/
+h1{
+    font-family: king;
+    font-size: 5rem;
+    color: black;
+    text-shadow: 1px 1px 3px grey;
+    text-align: center;
+}
+
+.main-index{
+    display: flex;
+    flex-direction: column;
+    height: 507px;
+}
+
+.article-index{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+p{ 
+    font-family: rosa;
+    font-size: 2rem;
+}
+   
+/*-------------------------------------------------CONTACT--------------------------------------------------*/
+
+.main-contact{
+    display: flex;
+    flex-direction: column;
+}
+   
+.article-contact{
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+form{
+    border: solid 1px black;
+    background-color: #086900;
+    width: 600px;
+    height: 525px;
+}
+
+.article-contact legend{
+    color: black;
+    text-shadow: 1px 1px 3px black;
+}
+
+.article-contact fieldset{
+    color: black;
+    font-weight:100;
+    text-align: center;
+    text-shadow: 1px 1px 3px black;
+}
+
+.article-contact form{
+    border-radius: 2%;
+}
+
+.article-contact input{
+    font-family: rosa;
+    font-size: 1rem;
+    color: black;
+    width: 95%;
+    border: solid 1px black;
+    border-radius: 2px;
+}
+
+textarea{
+    font-family: rosa;
+    font-size: 1rem;
+    color: black;
+    width: 95%;
+    height: 230px;
+    border: solid 1px black;
+    border-radius: 2px;
+}
+
+.article-contact button{
+    color: white;
+    background-color: #086900;
+    text-align: center;
+    border: solid 1px white;
+    box-shadow: 1px 1px 3px black;;
+    border-radius: 2px;
+    margin-top: 10px;
+}
+    
+.span-affiche-message{
+    font-family: rosa;
+    font-size: 2rem;
+    color: black;
+    text-shadow: 1px 1px 3px black;
+    display: flex;
+    justify-content: center;
+}
+
+b{
+    font-family: rosa;
+    color: white;
+    text-shadow: 1px 1px 3px black;
+}
+
+/*-------------------------------------------------SINSCRIRE------------------------------------------------*/
+.main-sinscrire{
+    display: flex;
+    flex-direction: column;
+}
+   
+.article-sinscrire{
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+form{
+    margin-top: 100px;
+    border: solid 1px black;
+    background-color: #086900;
+    width: 600px;
+    height: 525px;
+}
+
+.article-sinscrire legend{
+    color: black;
+    text-shadow: 1px 1px 3px black;
+}
+
+.article-sinscrire fieldset{
+    color: black;
+    font-weight:100;
+    text-align: center;
+    text-shadow: 1px 1px 3px black;
+}
+
+.article-sinscrire form{
+    border-radius: 2%;
+}
+
+.article-sinscrire input{
+    font-family: rosa;
+    font-size: 1rem;
+    color: black;
+    width: 95%;
+    border: solid 1px black;
+    border-radius: 2px;
+}
+
+textarea{
+    font-family: rosa;
+    font-size: 1rem;
+    color: black;
+    width: 95%;
+    height: 230px;
+    border: solid 1px black;
+    border-radius: 2px;
+}
+
+.article-sinscrire button{
+    color: white;
+    background-color: #086900;
+    text-align: center;
+    border: solid 1px white;
+    box-shadow: 1px 1px 3px black;;
+    border-radius: 2px;
+    margin-top: 10px;
+    width: 80px;
+}
+    
+.span-affiche-message{
+    font-family: rosa;
+    font-size: 2rem;
+    color: black;
+    text-shadow: 1px 1px 3px black;
+    display: flex;
+    justify-content: center;
+}
+
+b{
+    font-family: rosa;
+    color: white;
+    text-shadow: 1px 1px 3px black;
+}
+
+.article-btn-connection{
+    text-align: center;
+}
+
+.erreur{
+    color: red;
+}
+
+/*---------------------------------------------------INDEX--------------------------------------------------*/
+h1{
+    font-family: king;
+    font-size: 5rem;
+    color: black;
+    text-shadow: 1px 1px 3px grey;
+    text-align: center;
+}
+
+.main-accueil{
+    display: flex;
+    flex-direction: column;
+    height: 507px;
+}
+
+.article-accueil{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+p{ 
+    font-family: rosa;
+    font-size: 2rem;
+}
+
+/*-------------------------------------------------CONNEXION------------------------------------------------*/
+.main-connexion{
+    display: flex;
+    flex-direction: column;
+}
+   
+.article-connexion{
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.form-connexion{
+    margin-top: 100px;
+    border: solid 1px black;
+    background-color: #086900;
+    width: 600px;
+    height: 525px;
+}
+
+.article-connexion legend{
+    color: black;
+    text-shadow: 1px 1px 3px black;
+}
+
+.article-connexion fieldset{
+    color: black;
+    font-weight:100;
+    text-align: center;
+    text-shadow: 1px 1px 3px black;
+}
+
+.article-connexion form{
+    border-radius: 2%;
+}
+
+.article-connexion input{
+    font-family: rosa;
+    font-size: 1rem;
+    color: black;
+    width: 95%;
+    border: solid 1px black;
+    border-radius: 2px;
+}
+
+textarea{
+    font-family: rosa;
+    font-size: 1rem;
+    color: black;
+    width: 95%;
+    height: 230px;
+    border: solid 1px black;
+    border-radius: 2px;
+}
+
+.article-connexion button{
+    color: white;
+    background-color: #086900;
+    text-align: center;
+    border: solid 1px white;
+    box-shadow: 1px 1px 3px black;;
+    border-radius: 2px;
+    margin-top: 10px;
+    width: 80px;
+}
+    
+
+b{
+    font-family: rosa;
+    color: white;
+    text-shadow: 1px 1px 3px black;
+}
+
+.style-lien{
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 3px black;
+}
+
+
+.article-btn-connection{
+    text-align: center;
+}
+
+.logo-inscription{
+    margin-left: 30px;
+    margin-top: 50px;
+}
+
+.erreur{
+    color: red;
+}
+
+/*------------------------------------------------ENTREPRISES-----------------------------------------------*/
+.article-entreprises{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/*-------------------------------------------------RECHERCHE------------------------------------------------*/
+.article-recherche{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/*-------------------------------------------------MON PROFIL------------------------------------------------*/
+.article-monprofil{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/*--------------------------------------------------FOOTER--------------------------------------------------*/
+footer{
+    margin-top: 295px;
+    font-family: out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #086900;
+    height: 65px;
+    text-shadow: 1px 1px 3px black;
+}
+
+.footer-accueil{
+    margin-top: 295px;
+}
+
+h2{
+    font-size: 1.5rem;
+    color: white;
+}
+    
+/*-------------------------------------------------THE END--------------------------------------------------*/
+

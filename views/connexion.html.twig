@@ -1,0 +1,72 @@
+{% extends "./index.html.twig" %}
+{% block header %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="nav-logo navbar-brand" href="#">
+                <img src="/assets/img/logo2.png" alt="logo.eco" width="60" height="60" />
+            </a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="div-navbar collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="text-end navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right text-end">
+                  <li><a class="btn-connexion" href="/connexion"><span class="bi bi-box-arrow-in-right"></span> Connexion</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block main %}
+    <main class="main-connexion container">
+
+		<article class="article-connexion">
+            <form class="form-connxion" id="connexion" action="/connexion" method="post">
+                <fieldset>
+                    <legend><b> Connexion </b></legend>
+                    <br>
+                    <label for="emailinput"><b> Votre e-mail </b></label>
+                    <input type="email" name="email" id="emailinput" placeholder="Contact@exemple.com" />
+                    <br>
+                    <label for="nameinput"><b> Mot de passe </b></label>
+                    <input type="password" name="password" id="mdpinput" placeholder="***" />
+                    <br>
+                    
+                    <div class = "error">
+                            <span class="erreur">{{error}}</span>
+                    </div>
+                    
+                    <br>
+                    <button><b>Valider</b></button>
+                    <br>
+                    <a class="style-lien" href="/sinscrire">Nous rejoindre</a>
+                    <img class="logo-inscription" src="/assets/img/logo2.png" alt="logo.eco" width="200" height="200" />
+                </fieldset>
+            </form>
+        </article>     
+    </main>
+        <article>
+			
+        </article>
+    
+    </main>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

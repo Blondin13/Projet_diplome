@@ -1,0 +1,54 @@
+{% extends "./index.html.twig" %}
+{% block header %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="nav-logo navbar-brand" href="#">
+                <img src="/assets/img/logo2.png" alt="logo.eco" width="60" height="60" />
+            </a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="div-navbar collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="text-end navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/accueil">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/entreprises">Entreprises</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/recherche">Recherche</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contactad">Contact</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right text-end">
+                  <li><a class="btn-connexion" href="/monprofil"><span class="bi bi-person-fill"></span> Mon profil</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block main %}
+<main class="main-recherche container">
+
+		<article class="article-recherche">
+            <p><strong>Recherche</strong></p>
+        </article>
+
+</main>
+{% endblock %}
+
+
+{% block footer %}
+{% endblock %}
