@@ -34,7 +34,62 @@
 <main class="main-monprofil container">
 	
 		<article class="article-monprofil">
-            <p><strong>Mon profil</strong></p>
+             <form class="form-monprofil" id="sinscrire" action="/sinscrire" method="post">
+                <fieldset>
+                    <legend><b> Inscription </b></legend>
+                    <label for="nameinput"><b> Raison Social </b></label>
+                    <input type="text" name="ciename" id="cieinput" placeholder="Ecole-Ri7" />
+                    <label for="nameinput"><b> Votre nom </b></label>
+                    <input type="text" name="name" id="nameinput" placeholder="Dupont" />
+                    <label for="nameinput"><b> Votre prénom </b></label>
+                    <input type="text" name="firstname" id="fisrtnameinput" placeholder="Jean" />
+                    <label for="nameinput"><b> Fonction </b></label>
+                    <input type="text" name="fonctionname" id="fonctioninput" placeholder="Directeur" />
+                    <label for="emailinput"><b> Votre e-mail </b></label>
+                    <input type="email" name="email" id="emailinput" placeholder="Contact@exemple.com" />
+                    <label for="nameinput"><b> Mot de passe </b></label>
+                    <input type="password" name="password" id="mdpinput" placeholder="***" />
+                    <label for="nameinput"><b> Confirmation Mdp </b></label>
+                    <input type="password" name="confirmpassword" id="confirmdpinput" placeholder="***" />
+                    
+                    <button class="btn-monprofil"><b> Valider </b></button>
+                </fieldset>
+                
+                <fieldset>
+                    <legend><b> Adresse </b></legend>
+                    <label for="nameinput"><b> N° de voie </b></label>
+                    <input type="text" name="ndevoie" id="ndevoieinput" placeholder="155" />
+                    <label for="nameinput"><b> Type de voie </b></label>
+                    <input type="text" name="tdevoie" id="tdevoieinput" placeholder="Rue, Av, Bld" />
+                    <br>
+                    <label for="nameinput"><b> Nom de voie </b></label>
+                    <input type="text" name="voiename" id="voienameinput" placeholder="du Dirigeable" />
+                    <label for="nameinput"><b> Complement d'adresse (facultatif) </b></label>
+                    <input type="text" name="complementad" id="complementadninput" placeholder="zone industrielle" />
+                    <label for="emailinput"><b> Code Postal </b></label>
+                    <input type="text" name="codepostal" id="codepostalinput" placeholder="13400" />
+                    <label for="nameinput"><b> Ville </b></label>
+                    <input type="text" name="ville" id="villeinput" placeholder="Aubagne" />
+                    <label for="nameinput"><b> Pays </b></label>
+                    <input type="text" name="pays" id="paysinput" placeholder="France" />
+                    <br>
+                    <label for="emailinput"><b> N° de siret </b></label>
+                    <input type="text" name="ndesiret" id="ndesiretinput" placeholder="898 323 365 00012" />
+                    <label for="nameinput"><b> Téléphone </b></label>
+                    <input type="text" name="ndetel" id="ndetelinput" placeholder="09 70 44 99 61" />
+                    <label for="nameinput"><b> Ligne direct (facultatif) </b></label>
+                    <input type="text" name="ldirect" id="ldirectinput" placeholder="09 70 44 99 61" />
+                    
+                    
+                    <div class = "error">
+                        {% for error in errors %}
+                            <span class="erreur">{{error}}</span>
+                        {% endfor %}
+                    </div>
+                    
+                    <button class="btn-monprofil"><b>Valider => Suivant</b></button>
+                </fieldset>
+            </form>
         </article>
 
 </main>
