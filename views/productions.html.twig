@@ -1,0 +1,71 @@
+{% extends "./index.html.twig" %}
+{% block header %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="nav-logo navbar-brand" href="#">
+                <img src="/assets/img/logo2.png" alt="logo.eco" width="60" height="60" />
+            </a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="div-navbar collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="text-end navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/accueil">Retour a l'accueil</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right text-end">
+                  <li><a class="btn-connexion" href="/deconnexion"><span class="bi bi-person-fill"></span> Déconnexion</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block main %}
+<p class= "alerte"><strong>*Attention : Au moins un des champs "Besoins, Productions ou Déchets" est obligatoire*</strong></p>
+<main class="main-productions container">
+        <aside>
+        <p class="p-2">Informations</p>
+            <div>
+                <a href="/monprofil">Coordonnées</a>
+            </div>
+            <div>
+                <a href="/besoins">Besoins</a>
+            </div>
+            <div>
+                <a class="active" href="/productions">Productions</a>
+            </div>
+            <div>
+                <a href="/dechets">Déchets</a>
+            </div>
+        </aside>
+	
+		<article class="article-productions">
+             <form class="form-productions" id="productions" action="/productions" method="post">
+                <fieldset>
+                    <label for="text"><b class="b-monprofil"> Vos productions </b></label>
+                    <textarea class="textarea-productions" name="text" id="text" cols="30" rows="10" placeholder=".........."></textarea>
+                    
+                    <button class="btn-productions"><b>Valider => Suivant</b></button>
+                    
+                </fieldset>
+                    <div class = "error">
+                        {% for error in errors %}
+                            <span class="erreur">{{error}}</span>
+                        {% endfor %}
+                    </div> 
+            </form>
+        </article>
+</main>
+{% endblock %}
+{% block footer %}
+{% endblock %}

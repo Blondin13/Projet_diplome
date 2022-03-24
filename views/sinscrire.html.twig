@@ -22,7 +22,7 @@
                         <a class="nav-link" href="/">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/contactad">Contact</a>
+                        <a class="nav-link" href="/contact">Contact</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right text-end">
@@ -35,11 +35,11 @@
 
 {% block main %}
     <main class="main-sinscrire container">
-    
+        <img class="img-bg_inscrip" src="/assets/img/bg-inscrip.png">
 	    <article class="article-sinscrire">
-	        <form id="sinscrire" action="/sinscrire" method="post">
+	        <form class="form-sinscrire" id="sinscrire" action="/sinscrire" method="post">
                 <fieldset>
-                    <legend><b> Inscription </b></legend>
+                    <legend><b class="b-monprofil"> Inscription </b></legend>
                     <label for="nameinput"><b> Raison Social </b></label>
                     <input type="text" name="ciename" id="cieinput" placeholder="Ecole-Ri7" />
                     <label for="nameinput"><b> Votre nom </b></label>

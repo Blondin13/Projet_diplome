@@ -32,7 +32,7 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right text-end">
-                  <li><a class="btn-connexion" href="/monprofil"><span class="bi bi-person-fill"></span> Mon profil</a></li>
+                  <li><a class="btn-connexion" href="/monprofil/{{user.id}}"><span class="bi bi-person-fill"></span> Mon profil</a></li>
                 </ul>
             </div>
         </div>
@@ -40,11 +40,43 @@
 {% endblock %}
 
 {% block main %}
-<main class="main-recherche container">
 
-		<article class="article-recherche">
-            <p><strong>Recherche</strong></p>
+<main class="main-recherche container">
+        <h3><strong>Cochez votre catégorie</strong></h3>
+		<article class="article-btn-radio">
+		    <form class="form-btn-radio">
+                <div>
+                  <input type="radio" id="radio-besoins" name="choix" value="besoins">
+                  <label for="besoins">Besoins</label>
+                </div>
+                
+                <div>
+                  <input type="radio" id="radio-productions" name="choix" value="productions">
+                  <label for="productions">Productions</label>
+                </div>
+                
+                <div>
+                  <input type="radio" id="radio-dechets" name="choix" value="dechets">
+                  <label for="dechets">Déchets</label>
+                </div>
+                
+                 <div>
+                  <input type="radio" id="radio-tous" name="choix" value="tous">
+                  <label for="tous">Tous</label>
+                </div>
+            </form>
         </article>
+        
+        <form class="form-bar-shearch">
+            <div>
+                <label for="uname"> Entrez votre mot clé : </label>
+                <input type="text" id="uname" name="name">
+            </div>
+            <div>
+                <button class="btn-shearch">Shearch</button>
+            </div>
+        </form>
+        <img class="img-bg-shearch" src="/assets/img/logo2.png">
 
 </main>
 {% endblock %}

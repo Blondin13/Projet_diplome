@@ -32,26 +32,10 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right text-end">
-                  <li><a class="btn-connexion" href="/monprofil"><span class="bi bi-person-fill"></span> Mon profil</a></li>
+                  <li><a class="btn-connexion" href="/monprofil/{{user.id}}"><span class="bi bi-person-fill"></span> Mon profil</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 {% endblock %}
 
-{% block main %}
-<main class="main-accueil container">
-    
-    <article class="article-accueil">
-        <p><strong>Accueil</strong></p>
-        <p><strong>Qui sommes nous ?</strong></p>
-    </article>
-    
-</main>
-{% endblock %}
-
-{% block footer %}
-    <footer class="footer-accueil">
-        <h2>© Copyright Ecole Ri7 - By C²</h3>
-    </footer>
-{% endblock %}

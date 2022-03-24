@@ -64,24 +64,49 @@ app.get("/", async (req, res) => {
     res.render("index.html.twig");
 });
 
+app.get("/contact", async (req, res) => {
+    res.render("contact.html.twig", {
+        page: "contact",
+        user: req.session.user,
+    });
+});
+
+app.get("/accueil", async (req, res) => { // lever le id et le groot
+    res.render("accueil.html.twig", {
+        user: req.session.user,
+    });
+});
+
 app.get("/entreprises", async (req, res) => {
-    res.render("entreprises.html.twig");
+    res.render("entreprises.html.twig",{
+    user: req.session.user,                
+    });
 });
 
 app.get("/recherche", async (req, res) => {
-    res.render("recherche.html.twig");
+    res.render("recherche.html.twig",{
+    user: req.session.user,        
+    });
 });
 
 app.get("/contactad", async (req, res) => {
-    res.render("contactad.html.twig");
+    res.render("contactad.html.twig",{
+    user: req.session.user,                
+    });
+});  
+
+app.get("/besoins", async (req, res) => { // lever le id et le groot
+    res.render("besoins.html.twig",{
+        user: req.session.user
+    });
 });
 
-app.get("/contact", async (req, res) => {
+app.get("/productions", async (req, res) => {
+    res.render("productions.html.twig");
+});
 
-    res.render("contact.html.twig",{
-    page: "contact",
-    user: req.session.user
-    });
+app.get("/dechets", async (req, res) => {
+    res.render("dechets.html.twig");
 });
 
 //------------------------------------------------- Connexion -----------------------------------------
@@ -101,10 +126,6 @@ app.post("/connexion", async (req, res) => {
     }
 });
 
-app.get("/accueil", groot, async (req, res) => {
-    res.render("accueil.html.twig");
-});
-
 //----------------------------------------------- inscription -------------------------------------------
 app.get("/sinscrire", async (req, res) => {
     res.render("sinscrire.html.twig");
@@ -117,12 +138,22 @@ app.post("/sinscrire", async (req, res) => {
             errors: user.errors,
         });
     } else {
-        res.redirect("/monprofil");
+        req.session.userId = user._id;
+        res.redirect("/monprofil/" + req.session.userId);
     }
 });
 
 app.get("/monprofil", async (req, res) => {
-    res.render("monprofil.html.twig");
+    res.render("monprofil.html.twig", {
+        user: req.session.user,
+    });
+});
+
+app.post("/monprofil/:id", groot, async (req, res) => {
+    let user = await UserController.updateUser(req.session.userId, req.body)
+    if (user.modifiedCount == 1) {
+        res.redirect("/besoin/" + req.session.userId)
+    }
 });
 
 app.get("/deconnexion", async (req, res) => {

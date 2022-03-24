@@ -29,7 +29,7 @@ export class UserController {
             }
             return objerror; //je retourne mon tableau d'erreur si il y en a
         }
-        let findUser = await User.findOne({ mail: user.mail }); //({ mail: user.email }) //je verifie si un utilisateur avec le meme mail existe en base
+        let findUser = await User.findOne({ email: user.email }); //({ mail: user.email }) //je verifie si un utilisateur avec le meme mail existe en base
         if (!findUser) {
             // si aucun utilisateur en base
             userSaved = await newUser.save(); //je l'insere en base
@@ -41,20 +41,22 @@ export class UserController {
         }
     }
     //-----------------------------------------------------------------------------------------------------------------------------------------------
-   static async getUsers() {
-        return await User.find()
-    
-   }
+    static async getUsers() {
+        return await User.find();
+    }
     static async getUser(id, excludeFields) {
-        return await User.findOne({ _id: id }, excludeFields)
+        return await User.findOne({ _id: id }, excludeFields);
     }
 
     static async updateUser(id, updtatedUser) {
-        return await User.updateOne({ _id: id }, updtatedUser)
+    console.log(await User.findOne({_id: id}));
+        return await User.updateOne({ _id: id }, updtatedUser);
+        console.log(await User.findOne({_id: id}));
+
     }
 
     static async deleteUser(id) {
-        return await User.deleteOne({ _id: id })
+        return await User.deleteOne({ _id: id });
     }
 
     static async login(body) {
@@ -63,10 +65,10 @@ export class UserController {
         };
         let user = await User.findOne({ email: body.email });
         if (user) {
-            let compare = comparePassword(body.password, user.password);
+            let compare = await comparePassword(body.password, user.password);
             if (compare) {
-                return user
-            }else{
+                return user;
+            } else {
                 objerror.error = "Le mot de passe n'est pas valide";
                 return objerror;
             }
