@@ -31,32 +31,38 @@
 {% endblock %}
 
 {% block main %}
-<p class= "alerte"><strong>*Attention : Au moins un des champs "Besoins, Productions ou Déchets" est obligatoire*</strong></p>
+<img class="paper-attention-b" src="/assets/img/papier.png">
+    <p class="alerte-info"><strong>*Attention : Au moins un des champs "Besoins, Productions ou Déchets" est obligatoire*</strong></p>
+<img class="p-gauche" src="/assets/img/p-gauche.png">
+<img class="p-droite-b" src="/assets/img/p-droite.png">
+
 <main class="main-productions container">
         <aside>
         <p class="p-2">Informations</p>
             <div>
-                <a href="/monprofil">Coordonnées</a>
+                <a href="/monprofil/{{user.id}}">Coordonnées</a>
             </div>
             <div>
-                <a href="/besoins">Besoins</a>
+                <a href="/besoins/{{user.id}}">Besoins</a>
             </div>
             <div>
-                <a class="active" href="/productions">Productions</a>
+                <a class="active" href="/productions/{{user.id}}">Productions</a>
             </div>
             <div>
-                <a href="/dechets">Déchets</a>
+                <a href="/dechets/{{user.id}}">Déchets</a>
             </div>
         </aside>
 	
 		<article class="article-productions">
              <form class="form-productions" id="productions" action="/productions" method="post">
+             
                 <fieldset>
-                    <label for="text"><b class="b-monprofil"> Vos productions </b></label>
-                    <textarea class="textarea-productions" name="text" id="text" cols="30" rows="10" placeholder=".........."></textarea>
-                    
-                    <button class="btn-productions"><b>Valider => Suivant</b></button>
-                    
+                    <label for="text"><b class="p-monprofil"> Vos productions </b></label>
+                    <textarea class="textarea-productions" name="productions" id="text" cols="30" rows="10" placeholder="..........">{{user.productions}}</textarea>
+                        <div class="div-2-btn">
+                            <button class="btn-besoins" formaction="/productions/{{user.id}}/{{step}}"><b>Valider</b></button>
+                            <button class="btn-productions-suivant" formaction="/productions/{{user.id}}/{{nextStep}}"><b>Valider => Suivant</b></button>
+                        </div>
                 </fieldset>
                     <div class = "error">
                         {% for error in errors %}

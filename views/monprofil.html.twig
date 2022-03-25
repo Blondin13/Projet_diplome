@@ -31,27 +31,31 @@
 {% endblock %}
 
 {% block main %}
-<p class= "alerte"><strong>*Attention : Pour afficher les distances, vous devez renseigner votre adresse*</strong></p>
+<img class="paper-attention" src="/assets/img/papier.png">
+    <p class= "alerte"><strong>*Attention : Pour afficher les distances, vous devez renseigner votre adresse*</strong></p>
+<img class="p-gauche" src="/assets/img/p-gauche.png">
+<img class="p-droite" src="/assets/img/p-droite.png">
+
 <main class="main-monprofil container">
         <aside>
             <p class="p-2">Informations</p>
             <div>
-                <a class="active" href="/monprofil">Coordonnées</a>
+                <a class="active" href="/monprofil/{{user.id}}">Coordonnées</a>
             </div>
             <div>
-                <a href="/besoins">Besoins</a>
+                <a href="/besoins/{{user.id}}">Besoins</a>
             </div>
             <div>
-                <a href="/productions">Productions</a>
+                <a href="/productions/{{user.id}}">Productions</a>
             </div>
             <div>
-                <a href="/dechets">Déchets</a>
+                <a href="/dechets/{{user.id}}">Déchets</a>
             </div>
         </aside>
 		<article class="article-monprofil">
              <form class="form-monprofil" id="monprofil" action="/monprofil/{{user.id}}" method="post">
                 <fieldset>
-                    <legend><b class="b-monprofil"> Inscription </b></legend>
+                    <legend><b class="f-monprofil"> Inscription </b></legend>
                     <label for="nameinput"><b> Raison Social </b></label>
                     <input type="text" name="ciename" id="cieinput" placeholder="Ecole-Ri7" value ="{{user.ciename}}"/>
                     <label for="nameinput"><b> Votre nom </b></label>
@@ -64,7 +68,10 @@
                     <input type="file" name="logo" id="logoinput"/>
                     
                     <button class="btn-monprofil"><b> Valider </b></button>
+                    <img class="bande-attention" src="/assets/img/papier.png">
                     <p class= "alerte1"><strong>*Attention : Vous devez compléter toutes vos informations pour apparaître dans la liste des entreprises*</strong></p>
+                    <img class="ruban-d" src="/assets/img/ruban-d.png">
+                    <img class="ruban-g" src="/assets/img/ruban-g.png">
                 </fieldset>
                 
                 <fieldset>

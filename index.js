@@ -3,12 +3,12 @@ import mongoose from "mongoose";
 import session from "express-session";
 import nodemailer from "nodemailer";
 import Config from "./Config.js";
-import User from "./models/User.js";
+import User from "./models/User.js"; // une minuscule a user ?
 import groot from "./authGuard/authGuard.js";
 import UserController from "./controllers/User.js";
 const db = "mongodb+srv://cc:cecileetchristophe13@eccc.0fr40.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
-//----------------------------------------------connection base de donné-------------------------------------------------
+//-------------------------------------------------CONNEXION BASE DE DONNEES--------------------------------------------------------------------
 mongoose.connect(db, (err) => {
     if (err) {
         console.error("error" + err);
@@ -16,8 +16,8 @@ mongoose.connect(db, (err) => {
         console.log("connected at mongoDb");
     }
 });
-//-----------------------------------------------------------------------------------------------------------------------
 
+//----------------------------------------------------------------------------------------------------------------------------------------------
 let transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     auth: {
@@ -34,10 +34,10 @@ app.use(express.static("./public"));
 app.use(express.urlencoded({ extended: true }));
 app.listen(8013, () => {
     // Ecoute sur le port 8013
-    console.log("Server a démarer dans http://localhost:8013"); // Renvoi le message Server a démarer dans http://localhost:8000
+    console.log("Server a démarer dans http://localhost:8013"); // Renvoi le message "Server a démarer dans http://localhost:8013"
 });
 
-//------------------------------------------------------FORMULAIRE CONTACT NON CONNECTER--------------------------------------------------------
+//------------------------------------------------FORMULAIRE CONTACT FONCTION ENVOIE MESSAGE-------------------------------------------------------------
 app.post("/contact", async (req, res) => {
     let message = "";
     let mailOptions = {
@@ -60,10 +60,12 @@ app.post("/contact", async (req, res) => {
 });
 
 //------------------------------------------------------ROUTE PAGE.HTML.TWIG--------------------------------------------------------------------
+//---------------------------------------INDEX------------------------------------------------
 app.get("/", async (req, res) => {
     res.render("index.html.twig");
 });
 
+//--------------------------------------CONTACT-----------------------------------------------
 app.get("/contact", async (req, res) => {
     res.render("contact.html.twig", {
         page: "contact",
@@ -71,45 +73,7 @@ app.get("/contact", async (req, res) => {
     });
 });
 
-app.get("/accueil", async (req, res) => { // lever le id et le groot
-    res.render("accueil.html.twig", {
-        user: req.session.user,
-    });
-});
-
-app.get("/entreprises", async (req, res) => {
-    res.render("entreprises.html.twig",{
-    user: req.session.user,                
-    });
-});
-
-app.get("/recherche", async (req, res) => {
-    res.render("recherche.html.twig",{
-    user: req.session.user,        
-    });
-});
-
-app.get("/contactad", async (req, res) => {
-    res.render("contactad.html.twig",{
-    user: req.session.user,                
-    });
-});  
-
-app.get("/besoins", async (req, res) => { // lever le id et le groot
-    res.render("besoins.html.twig",{
-        user: req.session.user
-    });
-});
-
-app.get("/productions", async (req, res) => {
-    res.render("productions.html.twig");
-});
-
-app.get("/dechets", async (req, res) => {
-    res.render("dechets.html.twig");
-});
-
-//------------------------------------------------- Connexion -----------------------------------------
+//-------------------------------------CONNEXION----------------------------------------------
 app.get("/connexion", async (req, res) => {
     res.render("connexion.html.twig");
 });
@@ -126,7 +90,7 @@ app.post("/connexion", async (req, res) => {
     }
 });
 
-//----------------------------------------------- inscription -------------------------------------------
+//-------------------------------------INSCRIPTION--------------------------------------------
 app.get("/sinscrire", async (req, res) => {
     res.render("sinscrire.html.twig");
 });
@@ -143,21 +107,128 @@ app.post("/sinscrire", async (req, res) => {
     }
 });
 
-app.get("/monprofil", async (req, res) => {
+//-----------------------------------------------------------CONNECTER--------------------------------------------------------------------------
+//----------------------------------------ACCUEIL----------------------------------------------
+app.get("/accueil/", groot, async (req, res) => {
+    res.render("accueil.html.twig", {
+        user: req.session.user,
+    });
+});
+
+//---------------------------------------ENTREPRISE--------------------------------------------
+app.get("/entreprises/:id", groot, async (req, res) => {
+    res.render("entreprises.html.twig", {
+        user: req.session.user,
+    });
+});
+
+//----------------------------------------RECHERCHE--------------------------------------------
+app.get("/recherche/:id", groot, async (req, res) => {
+    res.render("recherche.html.twig", {
+        user: req.session.user,
+    });
+});
+
+//----------------------------------------CONTACTAD--------------------------------------------
+app.get("/contactad/:id", groot, async (req, res) => {
+    res.render("contactad.html.twig", {
+        user: req.session.user,
+    });
+});
+
+//-------------------------------------MON PROFIL-----------------------------------------------
+app.get("/monprofil/:id", groot, async (req, res) => {
     res.render("monprofil.html.twig", {
         user: req.session.user,
     });
 });
 
 app.post("/monprofil/:id", groot, async (req, res) => {
-    let user = await UserController.updateUser(req.session.userId, req.body)
-    if (user.modifiedCount == 1) {
-        res.redirect("/besoin/" + req.session.userId)
+    let user = await UserController.updateUser(req.session.userId, req.body);
+    if (user.modifiedCount == 1) {                                               // modifiedCount deja mis
+        res.redirect("/besoin/" + req.session.userId);
     }
 });
 
-app.get("/deconnexion", async (req, res) => {
+app.get("/deconnexion", groot, async (req, res) => {
     req.session.destroy();
     res.redirect("/");
 });
-//-----------------------------------------------------------------------------------------------------------
+
+//------------------------------------------BESOINS-----------------------------------------
+app.get("/besoins/:id", groot, async (req, res) => {
+    res.render("besoins.html.twig", {
+        user: req.session.user,
+        step: "entreprises",
+        nextStep: "productions"
+    });
+});
+
+app.post("/besoins/:id", groot, async (req, res) => {
+    res.render("besoins.html.twig",{
+        user: req.session.user,
+        step: "entreprises",
+        nextStep: "productions"
+    });
+});
+
+app.post("/besoins/:id/:nextStep", groot, async (req, res) => {
+    console.log(req.body);
+    let user = await UserController.updateUser(req.session.userId, req.body);
+        res.redirect(`/${req.params.nextStep}/${req.session.userId}`)
+});
+
+app.post("/besoins/:id/:step", groot, async (req, res) => {
+console.log(req.body);
+    let user = await UserController.updateUser(req.session.userId, req.body);
+        res.redirect(`/${req.params.step}/${req.session.userId}`)
+ });
+ 
+//------------------------------------------PRODUCTIONS---------------------------------------------
+app.get("/productions/:id", groot, async (req, res) => {
+    res.render("productions.html.twig", {
+        user: req.session.user,
+        step: "entreprises",
+        nextStep: "dechets"
+    });
+});
+
+app.post("/productions/:id", groot, async (req, res) => {
+    res.render("productions.html.twig", {
+        user: req.session.user,
+        step: "entreprises",
+        nextStep: "dechets"
+    });
+});
+
+app.post("/productions/:id/:nextStep", groot, async (req, res) => {
+    let user = await UserController.updateUser(req.session.userId, req.body);
+    res.redirect(`/${req.params.nextStep}/${req.session.userId}`)
+ });
+ 
+ app.post("/productions/:id/:step", groot, async (req, res) => {
+    let user = await UserController.updateUser(req.session.userId, req.body);
+    res.redirect(`/${req.params.step}/${req.session.userId}`)
+ });
+
+//---------------------------------------------DECHETS-----------------------------------------------
+app.get("/dechets/:id", groot, async (req, res) => {
+    res.render("dechets.html.twig", {
+        user: req.session.user,
+        step: "entreprises",
+    });
+});
+
+app.post("/dechets/:id", groot, async (req, res) => {
+    res.render("dechets.html.twig", {
+        user: req.session.user,
+        step: "entreprises",
+    });
+});
+
+app.post("/dechets/:id/:step", groot, async (req, res) => {
+    let user = await UserController.updateUser(req.session.userId, req.body);
+    res.redirect(`/${req.params.step}/${req.session.userId}`)
+ });
+
+//----------------------------------------------------------------------------------------------------------------------------------------------

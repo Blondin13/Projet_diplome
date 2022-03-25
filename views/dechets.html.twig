@@ -31,32 +31,35 @@
 {% endblock %}
 
 {% block main %}
-<p class= "alerte"><strong>*Attention : Au moins un des champs "Besoins, Productions ou Déchets" est obligatoire*</strong></p>
+<img class="paper-attention-b" src="/assets/img/papier.png">
+    <p class= "alerte"><strong>*Attention : Au moins un des champs "Besoins, Productions ou Déchets" est obligatoire*</strong></p>
+<img class="p-gauche" src="/assets/img/p-gauche.png">
+<img class="p-droite-b" src="/assets/img/p-droite.png">
 <main class="main-dechets container">
         <aside>
         <p class="p-2">Informations</p>
             <div>
-                <a href="/monprofil">Coordonnées</a>
+                <a href="/monprofil/{{user.id}}">Coordonnées</a>
             </div>
             <div>
-                <a href="/besoins">Besoins</a>
+                <a href="/besoins/{{user.id}}">Besoins</a>
             </div>
             <div>
-                <a href="/productions">Productions</a>
+                <a href="/productions/{{user.id}}">Productions</a>
             </div>
             <div>
-                <a class=" link active" href="/dechets">Déchets</a>
+                <a class="active" href="/dechets/{{user.id}}">Déchets</a>
             </div>
         </aside>
 	
 		<article class="article-dechets">
              <form class="form-dechets" id="dechets" action="/dechets" method="post">
                 <fieldset>
-                    <label for="text"><b class="b-monprofil"> Vos déchets </b></label>
-                    <textarea class="textarea-dechets" name="text" id="text" cols="30" rows="10" placeholder=".........."></textarea>
-                    
-                    <button class="btn-dechets"><b>Valider => Suivant</b></button>
-                    
+                    <label for="text"><b class="d-monprofil"> Vos déchets </b></label>
+                    <textarea class="textarea-dechets" name="dechets" id="text" cols="30" rows="10" placeholder="..........">{{user.dechets}}</textarea>
+                        <div class="div-2-btn">
+                            <button class="btn-besoins" formaction="/dechets/{{user.id}}/{{step}}"><b>Valider</b></button>
+                        </div>
                 </fieldset>
                     <div class = "error">
                         {% for error in errors %}

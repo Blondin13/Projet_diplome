@@ -22,13 +22,13 @@
                         <a class="nav-link" href="/accueil">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/entreprises">Entreprises</a>
+                        <a class="nav-link active" href="/entreprises/{{user.id}}">Entreprises</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/recherche">Recherche</a>
+                        <a class="nav-link" href="/recherche/{{user.id}}">Recherche</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/contactad">Contact</a>
+                        <a class="li-contact-user nav-link" href="/contactad/{{user.id}}">Contact</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right text-end">
@@ -43,7 +43,9 @@
 <main class="main-entreprises container">
 
 		<article class="article-entreprises">
-            <p><strong>Entreprises</strong></p>
+            {% block modal %}
+	            {% include "ficheentreprise.html.twig" %}
+            {% endblock %}
         </article>
         
 </main>

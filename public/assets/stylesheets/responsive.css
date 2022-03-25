@@ -4,21 +4,15 @@
     .main-index{
         height: 507px;
     }
-    
-    /*----------------------------ACCUEIL---------------------------------------*/
-    .main-accueil{
-        height: 507px;
-    }
         
     /*----------------------------CONTACT---------------------------------------*/
     .img-bg_contact{
-        margin-top: -25px;
-        margin-right: 10px;
+        margin-left: 450px;
     }
        
     .article-contact{
-        margin-top: 30px;
-        left: 50%;
+        margin-top: 10px;
+        
     }
     
     form{
@@ -53,17 +47,44 @@
         margin-top: 70px;
     }
     
+    /*----------------------------ACCUEIL---------------------------------------*/
+    .main-accueil{
+        height: 507px;
+    }
+    
+    /*--------------------------ENTREPRISES-------------------------------------*/
+    .main-entreprises{
+        margin-top: 25px;
+        width: 1200px;
+        height: 600px;
+    }
+    
+    /*----------------------------RECHERCHE-------------------------------------*/
+    .main-recherche{
+        margin-top: 25px;
+        width: 1200px;
+        height: 600px;
+    }
+    
+    .form-bar-shearch{
+        margin-left: 90px;
+    }
+    
+    .img-bg-shearch{
+        margin-top: 20px;
+    }
+    
     /*----------------------------MON PROFIL-------------------------------------*/
     .main-monprofil{
         margin-left: 110px;
     }
     
     .form-monprofil{
-        margin-top: 0px;
+        margin-top: 50px;
     }
     
     .main-monprofil aside{
-        margin-top: 10px; 
+        margin-top: 60px; 
     }
     
     /*------------------------------BESOINS--------------------------------------*/
@@ -72,11 +93,11 @@
     }
     
     .main-besoins aside{
-        margin-top: 10px; 
+        margin-top: 60px; 
     }
     
     .form-besoins{
-        margin-top: -10px;
+        margin-top: 40px;
     }
     
     /*-----------------------------PRODUCTIONS------------------------------------*/
@@ -85,11 +106,11 @@
     }
     
     .main-productions aside{
-        margin-top: 10px; 
+        margin-top: 60px; 
     }
     
     .form-productions{
-        margin-top: -10px;
+        margin-top: 40px;
     }
     
     /*-------------------------------DECHETS--------------------------------------*/
@@ -98,11 +119,11 @@
     }
     
     .main-dechets aside{
-        margin-top: 10px; 
+        margin-top: 60px; 
     }
     
     .form-dechets{
-        margin-top: -10px;
+        margin-top: 40px;
     }
     
     /*--------------------------------FOOTER--------------------------------------*/
@@ -208,7 +229,52 @@
 }
 /*------------------------------------------------------------395PX--------------------------------------------------------------------*/
 @media screen and (max-width: 400px){
-    /*---------------------------------------CV--------------------------------------------*/
+    /*---------------------------------------NAV--------------------------------------------*/
+    .navbar{
+        background-color: #086900 !important;
+        height: 70px !important;
+    }
+    
+    a{
+        font-family: out;
+        font-size: 1.2rem !important;
+        letter-spacing: 3px;
+        color: white;
+        text-decoration: none !important;
+        text-shadow: 1px 1px 3px black;
+    }
+    
+    .btn-connexion:hover{
+        background-color: white;
+        color: black;
+        text-shadow: 1px 1px 3px gray;
+        border-radius: 10px;
+    }
+    
+    li{
+        margin-left: 0;
+    }
+    
+    .li-contact{
+        margin-left: 0;
+    }
+    
+    .li-contact-page{
+        margin-left: 0;
+    }
+    
+    .li-contact-user{
+        margin-left: 0;
+    }
+    
+    .li-contactad{
+        margin-left: 0;
+    }
+        
+    .btn{
+        height: 0;
+        background-color: rgb(194, 189, 189);
+    }
     
     
 
