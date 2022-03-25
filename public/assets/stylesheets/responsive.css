@@ -20,7 +20,10 @@
     }
     
     /*---------------------------CONNEXION--------------------------------------*/
-    .img-bg_connex{
+    .ele-face{
+        margin-top: 70px;
+    }
+    .img-bg_connex-teste{
         margin-top: -10px;
         margin-right: 20px;
     }
