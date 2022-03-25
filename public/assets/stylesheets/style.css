@@ -342,6 +342,16 @@ b{
     transform: rotateY(180deg);
     margin-top: 440px;
     margin-left: 80px;
+    opacity: 0.4;
+}
+
+.img-velo-2{
+    position: absolute;
+    width: 245px;
+    transform: rotateY(180deg);
+    margin-top: 420px;
+    margin-left: 1000px;
+    opacity: 0.4;
 }
 
 .img-bg_connex-teste{

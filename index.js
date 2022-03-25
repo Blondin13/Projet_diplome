@@ -6,7 +6,7 @@ import Config from "./Config.js";
 import User from "./models/User.js"; // une minuscule a user ?
 import groot from "./authGuard/authGuard.js";
 import UserController from "./controllers/User.js";
-const db = "mongodb+srv://cc:cecileetchristophe13@eccc.0fr40.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const db = `mongodb+srv://cc:${Config.mdpBDD}@eccc.0fr40.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 
 //-------------------------------------------------CONNEXION BASE DE DONNEES--------------------------------------------------------------------
 mongoose.connect(db, (err) => {
