@@ -230,5 +230,11 @@ app.post("/dechets/:id/:step", groot, async (req, res) => {
     let user = await UserController.updateUser(req.session.userId, req.body);
     res.redirect(`/${req.params.step}/${req.session.userId}`)
  });
+ 
+//-----------------------------------------------------CARD---------------------------------------
+
+app.get("/card", async (req, res) => {
+    res.render("ficheentreprise.html.twig");
+});
 
 //----------------------------------------------------------------------------------------------------------------------------------------------

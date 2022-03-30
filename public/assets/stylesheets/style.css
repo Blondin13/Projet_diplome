@@ -51,10 +51,7 @@ li{
     margin-left: 520px;
 }
     
-.btn{
-    height: 34px;
-    background-color: rgb(194, 189, 189);
-}
+
 
 /*---------------------------------------------------INDEX--------------------------------------------------*/
 .main-index{
@@ -134,16 +131,20 @@ h1{
 
 .img-bg_contact{
     margin-top: -45px;
+    margin-left: 454px;
     position: absolute;
 }
 
-form{
+.article-contact form{
     display: flex;
     justify-content: center;
     border: solid 1px black;
     background-color: #579652 !important;
+    margin-top: 135px;
     width: 600px;
     height: 525px;
+    border-radius: 2%;
+    box-shadow: 1px 1px 2px rgb(92, 91, 91);
 }
 
 .article-contact legend{
@@ -157,11 +158,6 @@ form{
     font-weight:100;
     text-align: center;
     text-shadow: 1px 1px 3px black;
-}
-
-.article-contact form{
-    border-radius: 2%;
-    box-shadow: 1px 1px 2px rgb(92, 91, 91);
 }
 
 .article-contact input{
@@ -234,10 +230,11 @@ textarea{
     padding: 40px;
 }
 
-form{
+.form-sinscrire{
+    display: flex;
+    justify-content: center;
     margin-top: 100px;
-    border: solid 1px black;
-    background-color: #086900;
+    background-color:  #579652 !important;
     box-shadow: 1px 1px 2px rgb(92, 91, 91);
     width: 600px;
     height: 525px;
@@ -319,9 +316,10 @@ b{
     display: flex;
     flex-direction: column;
 }
+
 .ele-face{
     position: absolute;
-    margin-top: 120px;
+    margin-top: 190px;
     margin-left: 1001px;
     width: 180px;
     height: 228px;
@@ -330,7 +328,7 @@ b{
 
 .ele-gauche{
     position: absolute;
-    margin-top: 250px;
+    margin-top: 370px;
     margin-left: 15px;
     width: 200px;
     opacity: 0.3;
@@ -338,18 +336,42 @@ b{
 
 .img-velo{
     position: absolute;
-    width: 200px;
+    width: 205px;
     transform: rotateY(180deg);
-    margin-top: 440px;
-    margin-left: 80px;
+    margin-top: 560px;
+    margin-left: 110px;
     opacity: 0.4;
+}
+
+.img-ylies{
+    position: absolute;
+    width: 150px;
+    margin-top: 560px;
+    margin-left: -450px;
+    opacity: 0.4;
+    animation-duration: 10s;
+    animation-name: slidein;
+    animation-iteration-count: 1;
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 76%;
+    }
+    50%{
+        margin-left: -30%;
+    }
+    
+    to{
+        display: none;
+    }
 }
 
 .img-velo-2{
     position: absolute;
     width: 245px;
     transform: rotateY(180deg);
-    margin-top: 420px;
+    margin-top: 540px;
     margin-left: 1000px;
     opacity: 0.4;
 }
@@ -370,9 +392,11 @@ b{
 }
 
 .form-connexion{
+    display: flex;
+    justify-content: center;
     margin-top: 100px;
     border: solid 1px black;
-    background-color: #086900;
+    background-color:  #579652 !important;
     box-shadow: 1px 1px 2px rgb(92, 91, 91);
     width: 600px;
     height: 525px;
@@ -426,7 +450,6 @@ textarea{
     width: 80px;
 }
     
-
 b{
     font-family: rosa;
     color: white;
@@ -484,17 +507,17 @@ p{
 
 /*------------------------------------------------ENTREPRISES-----------------------------------------------*/
 .main-entreprises{
-    border: solid 1px #0b4b05;
-    border-radius: 15px;
-    background-color: #579652;
-    margin-top: 35px;
-    width: 1200px;
-    height: 800px;
-    box-shadow: 1px 1px 2px rgb(92, 91, 91);
+    background-image: url("/assets/img/bg-main-1.png");
+    background-size: 100%;
+}
+
+.article-entreprises{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
 }
 
 /*-------------------------------------------------RECHERCHE------------------------------------------------*/
-
 h3{
     font-family: rosa;
     font-size: 3rem;
@@ -560,7 +583,9 @@ input:checked {
     box-shadow: 2px 1px 1px white;
 }
 
-.form-bar-shearch{
+.form-bar-search{
+    display: flex;
+    justify-content: center;
     background-color: #0b4b05 !important;
     font-family: rosa;
     font-size: 1.3rem;
@@ -574,11 +599,11 @@ input:checked {
     margin-top: 30px;
 }
 
-.form-bar-shearch input{
+.form-bar-search input{
     width: 700px;
 }
 
-.btn-shearch{
+.btn-search{
     font-family: rosa;
     font-size: 1.3rem;
     letter-spacing: 2px;
@@ -587,7 +612,7 @@ input:checked {
     background-color: #086900 !important;
 }
 
-.img-bg-shearch{
+.img-bg-search{
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -599,7 +624,7 @@ input:checked {
 /*-------------------------------------------------MON PROFIL------------------------------------------------*/
 .alerte{
     position: absolute;
-    margin-left: 550px;
+    margin-left: 730px;
     font-family: rosa;
     font-size: 20px;
     color: red;
@@ -610,7 +635,7 @@ input:checked {
 .paper-attention{
     position:absolute;
     margin-top: -25px;
-    margin-left: 500px;
+    margin-left: 680px;
     height: 80px;
     width: 700px;
     opacity: 10;
@@ -619,15 +644,15 @@ input:checked {
 .p-gauche{
     width: 50px;
     position: absolute;
-    margin-left: 500px;
-    margin-top: -45px;
+    margin-left: 680px;
+    margin-top: -46px;
     
 }
 
 .p-droite{
     width: 50px;
     position: absolute;
-    margin-left: 1140px;
+    margin-left: 1320px;
     margin-top: -50px;
     
 }
@@ -847,7 +872,8 @@ textarea{
 
 .alerte-info{
     position: absolute;
-    margin-left: 530px;
+    margin-top: 25px;
+    margin-left: 10px;
     font-family: rosa;
     font-size: 20px;
     color: red;
@@ -857,8 +883,6 @@ textarea{
 
 .paper-attention-b{
     position:absolute;
-    margin-top: -25px;
-    margin-left: 500px;
     height: 80px;
     width: 750px;
     opacity: 10;
@@ -867,8 +891,15 @@ textarea{
 .p-droite-b{
     width: 50px;
     position: absolute;
-    margin-left: 1180px;
-    margin-top: -50px;
+    margin-left: 340px;
+    margin-top: -20px;
+}
+
+.p-gauche-b{
+    width: 50px;
+    position: absolute;
+    margin-left: -340px;
+    margin-top: -20px;
 }
 
 .b-monprofil{
@@ -927,7 +958,7 @@ aside div a{
 .article-besoins label{
     margin-right: 290px;
     width: 160px;
-    margin-top: 60px;
+    margin-top: 80px;
 }
 
 .article-besoins input{
@@ -1058,7 +1089,7 @@ aside div a{
 .article-productions label{
     margin-right: 290px;
     width: 210px;
-    margin-top: 60px;
+    margin-top: 80px;
 }
 
 .article-productions input{
@@ -1184,7 +1215,7 @@ aside div a{
 .article-dechets label{
     margin-right: 290px;
     width: 160px;
-    margin-top: 60px;
+    margin-top: 80px;
 }
 
 .article-dechets input{
@@ -1250,6 +1281,50 @@ h2{
     color: white;
 }
 
-    
+/*-------------------------------------------------CARD------------------------------------------------*/
+.card-cie{
+    text-align: center;
+    background-color: #086900;
+    border: solid 1px black;
+    border-radius: 5px;
+    width: 300px;
+    height: 480px !important;
+    margin: auto;
+    margin-top: 60px;
+    margin: 20px;
+    box-shadow: 1px 1px 2px rgb(43, 43, 43);
+}
+
+.card-body{
+    background-color: #086900;
+}
+
+.logo-vide{
+    width: 200px;
+    height: 100;
+}
+
+.p-card{
+    margin-left: 10px;
+    font-family: rosa;
+    font-size: 1rem;
+    text-align: start;
+    color: white;
+    text-shadow: 1px 1px 3px black;
+}
+
+.btn-fiche{
+    background-color: #086900;
+    color: white;
+    font-size: 0.8rem !important;
+}
+
+.btn-fiche:hover{
+    padding: 5px !important;
+    color: rgb(214, 212, 212);
+    text-shadow: 1px 1px 3px black;
+}
+
+  
 /*-------------------------------------------------THE END--------------------------------------------------*/
 

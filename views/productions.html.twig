@@ -31,11 +31,6 @@
 {% endblock %}
 
 {% block main %}
-<img class="paper-attention-b" src="/assets/img/papier.png">
-    <p class="alerte-info"><strong>*Attention : Au moins un des champs "Besoins, Productions ou Déchets" est obligatoire*</strong></p>
-<img class="p-gauche" src="/assets/img/p-gauche.png">
-<img class="p-droite-b" src="/assets/img/p-droite.png">
-
 <main class="main-productions container">
         <aside>
         <p class="p-2">Informations</p>
@@ -54,7 +49,11 @@
         </aside>
 	
 		<article class="article-productions">
-             <form class="form-productions" id="productions" action="/productions" method="post">
+            <form class="form-productions" id="productions" action="/productions" method="post">
+            <img class="paper-attention-b" src="/assets/img/papier.png">
+                <p class="alerte-info"><strong>*Attention : Au moins un des champs "Besoins, Productions ou Déchets" est obligatoire*</strong></p>
+                <img class="p-gauche-b" src="/assets/img/p-gauche.png">
+                <img class="p-droite-b" src="/assets/img/p-droite.png">
              
                 <fieldset>
                     <label for="text"><b class="p-monprofil"> Vos productions </b></label>
