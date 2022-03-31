@@ -51,12 +51,22 @@ export class UserController {
     }
 
     static async updateUser(id, updtatedUser) {
-    
+    if(updtatedUser.besoins){
+        updtatedUser.besoins = updtatedUser.besoins.toLowerCase()
+    }
+    if(updtatedUser.productions){
+        updtatedUser.productions = updtatedUser.productions.toLowerCase()
+    }
+    if(updtatedUser.dechets){
+        updtatedUser.dechets = updtatedUser.dechets.toLowerCase()
+    }
         let test = await fetch(encodeURI(`http://api.positionstack.com/v1/forward?access_key=${Config.ApiKey}&query=${updtatedUser.ndevoie} ${updtatedUser.tdevoie} ${updtatedUser.voiename} ${updtatedUser.codepostal} ${updtatedUser.ville} ${updtatedUser.pays}&country=FR`))
         test = await test.json()
+    if(test.data.length != 0){
         console.log(test);
         updtatedUser.latitude = test.data[0].latitude
         updtatedUser.longitude = test.data[0].longitude
+    } 
         return await User.updateOne({ _id: id }, updtatedUser);
     }
     
