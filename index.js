@@ -117,8 +117,10 @@ app.get("/accueil/", groot, async (req, res) => {
 
 //---------------------------------------ENTREPRISE--------------------------------------------
 app.get("/entreprises/:id", groot, async (req, res) => {
+    let cards = await User.find();
     res.render("entreprises.html.twig", {
         user: req.session.user,
+        cards: cards,
     });
 });
 
@@ -145,8 +147,8 @@ app.get("/monprofil/:id", groot, async (req, res) => {
 
 app.post("/monprofil/:id", groot, async (req, res) => {
     let user = await UserController.updateUser(req.session.userId, req.body);
-    if (user.modifiedCount == 1) {                                               // modifiedCount deja mis
-        res.redirect("/besoin/" + req.session.userId);
+    if (user.modifiedCount == 1) {
+        res.redirect("/besoins/" + req.session.userId);
     }
 });
 
@@ -160,36 +162,36 @@ app.get("/besoins/:id", groot, async (req, res) => {
     res.render("besoins.html.twig", {
         user: req.session.user,
         step: "entreprises",
-        nextStep: "productions"
+        nextStep: "productions",
     });
 });
 
 app.post("/besoins/:id", groot, async (req, res) => {
-    res.render("besoins.html.twig",{
+    res.render("besoins.html.twig", {
         user: req.session.user,
         step: "entreprises",
-        nextStep: "productions"
+        nextStep: "productions",
     });
 });
 
 app.post("/besoins/:id/:nextStep", groot, async (req, res) => {
     console.log(req.body);
     let user = await UserController.updateUser(req.session.userId, req.body);
-        res.redirect(`/${req.params.nextStep}/${req.session.userId}`)
+    res.redirect(`/${req.params.nextStep}/${req.session.userId}`);
 });
 
 app.post("/besoins/:id/:step", groot, async (req, res) => {
-console.log(req.body);
+    console.log(req.body);
     let user = await UserController.updateUser(req.session.userId, req.body);
-        res.redirect(`/${req.params.step}/${req.session.userId}`)
- });
- 
+    res.redirect(`/${req.params.step}/${req.session.userId}`);
+});
+
 //------------------------------------------PRODUCTIONS---------------------------------------------
 app.get("/productions/:id", groot, async (req, res) => {
     res.render("productions.html.twig", {
         user: req.session.user,
         step: "entreprises",
-        nextStep: "dechets"
+        nextStep: "dechets",
     });
 });
 
@@ -197,19 +199,19 @@ app.post("/productions/:id", groot, async (req, res) => {
     res.render("productions.html.twig", {
         user: req.session.user,
         step: "entreprises",
-        nextStep: "dechets"
+        nextStep: "dechets",
     });
 });
 
 app.post("/productions/:id/:nextStep", groot, async (req, res) => {
     let user = await UserController.updateUser(req.session.userId, req.body);
-    res.redirect(`/${req.params.nextStep}/${req.session.userId}`)
- });
- 
- app.post("/productions/:id/:step", groot, async (req, res) => {
+    res.redirect(`/${req.params.nextStep}/${req.session.userId}`);
+});
+
+app.post("/productions/:id/:step", groot, async (req, res) => {
     let user = await UserController.updateUser(req.session.userId, req.body);
-    res.redirect(`/${req.params.step}/${req.session.userId}`)
- });
+    res.redirect(`/${req.params.step}/${req.session.userId}`);
+});
 
 //---------------------------------------------DECHETS-----------------------------------------------
 app.get("/dechets/:id", groot, async (req, res) => {
@@ -228,13 +230,32 @@ app.post("/dechets/:id", groot, async (req, res) => {
 
 app.post("/dechets/:id/:step", groot, async (req, res) => {
     let user = await UserController.updateUser(req.session.userId, req.body);
-    res.redirect(`/${req.params.step}/${req.session.userId}`)
- });
- 
-//-----------------------------------------------------CARD---------------------------------------
+    res.redirect(`/${req.params.step}/${req.session.userId}`);
+});
 
+//---------------------------------------------------CARD teste visu---------------------------------------
 app.get("/card", async (req, res) => {
     res.render("ficheentreprise.html.twig");
 });
+//---------------------------------------------------------------------------------------------------------
+
+//-----------------------------------------------------CARD COMPLETE---------------------------------------
+
+app.get("/card-complete/:id", groot, async (req, res) => {
+    let card = await User.findOne({_id: req.params.id});
+    res.render("fichecomplete.html.twig", {
+        user: req.session.user,
+        card: card,
+    });
+});
 
 //----------------------------------------------------------------------------------------------------------------------------------------------
+
+//-----------------------------------------------------API---------------------------------------
+app.get("/test", groot, async (req, res) => {
+    let user = req.session.user;
+    let test = await fetch(
+        `http://api.positionstack.com/v1/forward?access_key=${Config.ApiKey}&query=${user.ndevoie} ${user.tdevoie} ${user.voiename} ${user.complementad} ${user.codepostal} ${user.ville} ${user.pays}`
+    );
+    test = await test.json();
+});

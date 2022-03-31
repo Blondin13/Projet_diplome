@@ -1,112 +1,58 @@
 {% extends "./index.html.twig" %}
 {% block header %}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-        <div class="container">
-            <a class="nav-logo navbar-brand" href="#">
-                <img src="/assets/img/logo2.png" alt="logo.eco" width="60" height="60" />
-            </a>
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="div-navbar collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="text-end navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/accueil">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/entreprises/{{user.id}}">Entreprises</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/recherche/{{user.id}}">Recherche</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="li-contact-user nav-link" href="/contactad/{{user.id}}">Contact</a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right text-end">
-                  <li><a class="btn-connexion" href="/monprofil/{{user.id}}"><span class="bi bi-person-fill"></span> Mon profil</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-{% endblock %}
-
-{% extends "./index.html.twig" %}
-{% block header %}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-        <div class="container">
-            <a class="nav-logo navbar-brand" href="#">
-                <img src="/assets/img/logo2.png" alt="logo.eco" width="60" height="60" />
-            </a>
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="div-navbar collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="text-end navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/accueil">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/entreprises/{{user.id}}">Entreprises</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/recherche/{{user.id}}">Recherche</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="li-contact-user nav-link" href="/contactad/{{user.id}}">Contact</a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right text-end">
-                  <li><a class="btn-connexion" href="/monprofil/{{user.id}}"><span class="bi bi-person-fill"></span> Mon profil</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+		<div class="container">
+			<a class="nav-logo navbar-brand" href="#">
+				<img src="/assets/img/logo2.png" alt="logo.eco" width="60" height="60"/>
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="div-navbar collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="text-end navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link" href="/accueil">Accueil</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="/entreprises/{{user.id}}">Entreprises</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/recherche/{{user.id}}">Recherche</a>
+					</li>
+					<li class="nav-item">
+						<a class="li-contact-user nav-link" href="/contactad/{{user.id}}">Contact</a>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right text-end">
+					<li>
+						<a class="btn-connexion" href="/monprofil/{{user.id}}"><span class="bi bi-person-fill"></span>Mon profil</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 {% endblock %}
 
 {% block main %}
 
-<main class="main-entreprises">
+	<main class="main-entreprises">
 
 		<article class="article-entreprises row">
-	            {% include "ficheentreprise.html.twig" %}
-	            {% include "ficheentreprise.html.twig" %}
-	            {% include "ficheentreprise.html.twig" %}
-	            {% include "ficheentreprise.html.twig" %}
-	            {% include "ficheentreprise.html.twig" %}
-	            {% include "ficheentreprise.html.twig" %}
-	            {% include "ficheentreprise.html.twig" %}
-	            {% include "ficheentreprise.html.twig" %}
-	            {% include "ficheentreprise.html.twig" %}
-	            {% include "ficheentreprise.html.twig" %}
-	            {% include "ficheentreprise.html.twig" %}
-	            {% include "ficheentreprise.html.twig" %} 
-	    </article>
-        
-</main>
+		{% for card in cards %}
+			<div class="card-cie">
+				<img class="logo-vide" src="/assets/img/logo-vide.png" alt="logo">
+				<p class="p-card">Raison sociale: <span class="span-card"> {{card.ciename}}</span></p>
+				<p class="p-card">Adresse: <span class="span-card">{{card.ndevoie}} {{card.tdevoie}} {{card.voiename}} {{card.complementad}} {{card.codepostal}} {{card.ville}} {{card.pays}}</span></p>
+				<p class="p-card">N° tel: <span class="span-card">{{card.ndetel}}</span></p>
+				<p class="p-card">Besoins: <span class="span-card">{{card.besoins}}</span></p>
+				<p class="p-card">Productions: <span class="span-card">{{card.productions}}</span></p>
+				<p class="p-card">Déchets: <span class="span-card">{{card.dechets}}</span></p>
+				<br>
+				<a class="btn-fiche" href="/card-complete/{{card.id}}">-Voir fiche complète-</a>
+			</div>
+		{% endfor %}
+		</article>
+
+	</main>
 {% endblock %}
-
-{% block footer %}
-{% endblock %}
-
-
-
-
-
-
+{% block footer %}{% endblock %}

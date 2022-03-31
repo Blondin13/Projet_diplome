@@ -171,6 +171,41 @@
         margin-top: 40px;
     }
     
+    /*--------------------------------CARD COMPLETE--------------------------------------*/
+    .section-card-complete{
+        margin: 20px;
+    }
+    
+    .article-card-complete{
+        width: 1480px;
+        height: 610px !important;
+    }
+    
+    .div-f-complete{
+        width: 600px;
+    }
+    
+    .logo-vide{
+        width: 200px;
+    }
+    
+    .p-card-complete{
+        margin-top: 15px;
+        margin-left: 30px;
+        font-size: 0.7rem;
+    }
+    
+    .div-cadre-map{
+        display: flex;
+        align-items: center;
+        margin-right: 30px;
+    }
+    
+    .div-map{
+        width: 800px;
+        height: 580px;
+    }
+    
     /*--------------------------------FOOTER--------------------------------------*/
     footer{
         margin-top: 79px;

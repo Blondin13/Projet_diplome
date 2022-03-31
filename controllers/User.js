@@ -3,6 +3,8 @@ import { cryptPassword } from "../crypte_mdp/cryptPassword.js";
 import { comparePassword } from "../crypte_mdp/cryptPassword.js";
 import path from "path";
 import { fileURLToPath } from "url";
+import fetch from 'node-fetch'
+import Config from "../Config.js";
 import fs from "fs";
 
 const __filename = fileURLToPath(import.meta.url); //retourne le chemin absolu du fichier en cours
@@ -49,12 +51,15 @@ export class UserController {
     }
 
     static async updateUser(id, updtatedUser) {
-    console.log(await User.findOne({_id: id}));
+    
+        let test = await fetch(encodeURI(`http://api.positionstack.com/v1/forward?access_key=${Config.ApiKey}&query=${updtatedUser.ndevoie} ${updtatedUser.tdevoie} ${updtatedUser.voiename} ${updtatedUser.codepostal} ${updtatedUser.ville} ${updtatedUser.pays}&country=FR`))
+        test = await test.json()
+        console.log(test);
+        updtatedUser.latitude = test.data[0].latitude
+        updtatedUser.longitude = test.data[0].longitude
         return await User.updateOne({ _id: id }, updtatedUser);
-        console.log(await User.findOne({_id: id}));
-
     }
-
+    
     static async deleteUser(id) {
         return await User.deleteOne({ _id: id });
     }

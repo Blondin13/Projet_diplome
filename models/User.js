@@ -43,6 +43,12 @@ const userSchema = new mongoose.Schema({
     codepostal: {
         type: Number,
     },
+    latitude:{
+    type: Number,
+    },
+    longitude:{
+        type: Number,
+    },
     ville: {
         type: String,
     },
@@ -67,6 +73,7 @@ const userSchema = new mongoose.Schema({
     dechets: {
         type: String,
     },
+ 
 })
 
 const User = mongoose.model('User', userSchema)
