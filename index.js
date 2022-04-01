@@ -255,7 +255,7 @@ app.get("/card-complete/:id", groot, async (req, res) => {
 app.get("/test", groot, async (req, res) => {
     let user = req.session.user;
     let test = await fetch(
-        `http://api.positionstack.com/v1/forward?access_key=${Config.ApiKey}&query=${user.ndevoie} ${user.tdevoie} ${user.voiename} ${user.complementad} ${user.codepostal} ${user.ville} ${user.pays}`
+        `http://api.positionstack.com/v1/forward?access_key=${Config.ApiKey}&query=${user.ndevoie}-${user.tdevoie}-${user.voiename}-${user.complementad}-${user.codepostal}-${user.ville}-${user.pays}`
     );
     test = await test.json();
 });

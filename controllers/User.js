@@ -60,7 +60,7 @@ export class UserController {
     if(updtatedUser.dechets){
         updtatedUser.dechets = updtatedUser.dechets.toLowerCase()
     }
-        let test = await fetch(encodeURI(`http://api.positionstack.com/v1/forward?access_key=${Config.ApiKey}&query=${updtatedUser.ndevoie} ${updtatedUser.tdevoie} ${updtatedUser.voiename} ${updtatedUser.codepostal} ${updtatedUser.ville} ${updtatedUser.pays}&country=FR`))
+        let test = await fetch(encodeURI(`http://api.positionstack.com/v1/forward?access_key=${Config.ApiKey}&query=${updtatedUser.ndevoie}-${updtatedUser.tdevoie}-${updtatedUser.voiename}-${updtatedUser.codepostal}-${updtatedUser.ville}-${updtatedUser.pays}&country=FR`))
         test = await test.json()
     if(test.data.length != 0){
         console.log(test);
